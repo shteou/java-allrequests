@@ -69,15 +69,6 @@
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.2</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>org.addario.AllRequests</mainClass>
-                            </manifest>
-                        </archive>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
@@ -94,7 +85,7 @@
                     </configuration>
                     <executions>
                         <execution>
-                            <id>make-assembly</id>
+                            <id>assemble-all</id>
                             <phase>package</phase>
                             <goals>
                                 <goal>single</goal>
@@ -112,5 +103,29 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+          <plugin>
+              <artifactId>maven-jar-plugin</artifactId>
+              <configuration>
+                  <archive>
+                      <manifest>
+                          <addClasspath>true</addClasspath>
+                          <classpathPrefix>lib/</classpathPrefix>
+                          <mainClass>org.addario.AllRequests</mainClass>
+                      </manifest>
+                  </archive>
+              </configuration>
+          </plugin>
+          <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <configuration>
+                  <archive>
+                      <manifest>
+                          <mainClass>org.addario.AllRequests</mainClass>
+                      </manifest>
+                  </archive>
+              </configuration>
+          </plugin>
+        </plugins>
     </build>
 </project>
